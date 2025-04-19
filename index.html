@@ -1,75 +1,122 @@
 <!doctype html>
 <html lang="en">
   <head>
-
-    <style>
-        body {
-          background-image: url('https://previews.123rf.com/images/merznatalia/merznatalia1403/merznatalia140300548/26438178-new-year.jpg?fj=1');
-          background-repeat: no-repeat;
-          background-size :100% ;
-        }
-        </style>
-        
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>I am a Clock</title>
+    <title>Digital Clock</title>
 
-    
-        <style>
-            p {
-              background-image: url('');
-            }
-            </style>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+    <style>
+      /* Full-page background */
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(145deg, #333, #111);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+      }
 
+      /* Clock Container with increased width */
+      .clock-container {
+        text-align: center;
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        width: 550px; /* Increased width */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease-in-out;
+      }
 
-   
-   <script>
-     let a;
-     let date;
-     let time;
-    
-     setInterval(() => {
-     a = new Date();
-     a.getHours();
-     date = a.toLocaleDateString();
+      /* Time Display */
+      .time-display {
+        font-size: 6rem;
+        color: #00ffcc;
+        font-weight: bold;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin: 0;
+      }
 
-     time = a.getHours() +   ' : ' + a.getMinutes() + ' : ' + a.getSeconds();
-     date= a.toLocaleDateString();
-     document.getElementById('time').innerHTML = time + "  on  " + date;
-    }, 1000);
+      /* Date Display */
+      .date-display {
+        font-size: 1.5rem;
+        color: #fff;
+        margin-top: 15px;
+        letter-spacing: 1px;
+      }
+
+      /* Button Styling */
+      .btn-project {
+        background-color: #00ffcc;
+        color: #111;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 50px;
+        margin-top: 30px;
+        box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-project:hover {
+        background-color: #009f99;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 255, 204, 0.6);
+      }
+
+      /* Time Link Styling */
+      .time-link {
+        font-size: 1.2rem;
+        color: #00ffcc;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .time-link:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      /* Hover effect */
+      .clock-container:hover {
+        box-shadow: 0 0 60px rgba(0, 255, 204, 0.8);
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="clock-container">
+      <h1 class="time-display" id="time">Loading...</h1>
+      <p class="date-display" id="date">Loading...</p>
+      <a href="https://www.timeanddate.com/worldclock/" target="_blank" class="time-link">Check Out World’s Clock</a>
+      <br>
+    </div>
+
+    <script>
+      let a;
+      let date;
+      let time;
+
+      setInterval(() => {
+        a = new Date();
+        date = a.toLocaleDateString();
+        time = a.getHours() + ' : ' + a.getMinutes() + ' : ' + a.getSeconds();
+        document.getElementById('time').innerHTML = time;
+        document.getElementById('date').innerHTML = date;
+      }, 1000);
     </script>
 
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-  <body>
-    
+    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-<div class="container my-4">
-    <div class="jumbotron">
-        <h1 class="display-4">Current time is : <span id="time"></span></h1>
-        <p class="lead">We have got you covered.</p>
-        <hr class="my-4">
-        <p>We are here to show you the time for different countries</p>
-        <p class="lead">
-            
-            
-<p id="demo1"></p>
-            <script>
-                let text = "Check Out World's Clock";
-                let result = text.link("https://www.timeanddate.com/worldclock/");
-                document.getElementById("demo1").innerHTML = result;
-                
-                </script> 
-        </p>
-      </div>
-
-
-</div>
